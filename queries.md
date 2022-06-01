@@ -109,6 +109,11 @@ query: { founded_year: {$lt:2000}  , "acquisition.price_amount": {$lt:10000000} 
 ### 19. All the companies that have been founded between 2000 and 2010, but have not been acquired before 2011.
 
 **`query`**: { $and : [ {founded_year: {$gt:1999}} , {founded_year: {$lt:2010}} ,  {"acquisition.acquired_year":{$not:{$lt:2011}} } ] }
+
+or 
+
+{ $and: [ { founded_year: { $gt: 1999 }},{ founded_year: { $lt: 2010 } },{ 'acquisitions.acquired_year':  { $gt: 2011 } } ] }
+
 **`projection`**:
 **`sort`**: 
 **`skip`**: 
